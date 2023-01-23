@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
   def index
-    puts "index"
+    puts 'index'
   end
 
   def show
-    puts "show"
+    puts 'show'
   end
 end
