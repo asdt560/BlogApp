@@ -2,14 +2,14 @@ require 'rails_helper'
 
 RSpec.describe 'Users', type: :request do
   describe 'GET users#index' do
-    before(:each) { get "/users" }
+    before(:each) { get '/users' }
 
     it 'is a success' do
       expect(response).to have_http_status(:ok)
     end
 
     it "renders 'index' template" do
-      expect(response).to render_template("index")
+      expect(response).to render_template('index')
     end
 
     it 'includes placeholder text' do
@@ -18,14 +18,14 @@ RSpec.describe 'Users', type: :request do
   end
 
   describe 'GET users#show' do
-    before(:each) { get "/users/1" }
+    before(:each) { get '/users/1' }
 
     it 'is a success' do
       expect(response).to have_http_status(:ok)
     end
 
     it "renders 'index' template" do
-      expect(response).to render_template("show")
+      expect(response).to render_template('show')
     end
 
     it 'includes placeholder text' do
