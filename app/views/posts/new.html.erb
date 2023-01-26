@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head></head>
+  <body>
+    <div class='container'>
+      <h2>New Post:</h2>
+      <%= form_with model: @post, url: posts_create_path do |f| %>
+        <%= f.label :title %>
+        <%= f.text_field :title %>
+        <%= f.label :text %>
+        <%= f.text_area :text %>
+        <%= f.submit "Create Post" %>
+      <% end %>
+    </div>
+  </body>
+</html>
