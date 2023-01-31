@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
+  devise_for :users
+  devise_scope :user do
+    get '/users/sign_out' => 'devise/sessions#destroy'
+  end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
-  # root "articles#index"
+  root to: "users#index"
   get "/users", to: "users#index", as: 'user'
   get "/posts/new", to: "posts#new", as: 'posts_new'
   post "posts", to: 'posts#create', as: 'posts_create'

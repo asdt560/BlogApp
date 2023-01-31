@@ -5,7 +5,14 @@
 }
 
 .container > * {
-  margin-bottom: 30px;
+  margin-bottom: 20px;
+}
+
+a {
+  all: unset;
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
 h2 {
@@ -14,10 +21,6 @@ h2 {
 
 p {
   margin: 0;
-}
-
-a {
-  all: unset;
 }
 
 .card {
@@ -98,8 +101,58 @@ a {
   padding: 1rem;
   border: 2px solid black;
   box-shadow: 2px 2px;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.field {
+  width: 100%;
+  margin-bottom: 5px;
+  display: flex;
+}
+
+.field > * {
+  padding: 0.5rem;
+  width: 100%;
+}
+
+.actions > * {
+  width: 100%;
+}
+
+.checkbox {
+  padding: 0.3rem;
 }
 
 .container.postscreen > * {
   margin-bottom: 2px;
+}
+
+.new_user {
+  width: 80%;
+}
+
+.button.small {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 15px;
+}
+
+.commentformcontainer {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.commentformcontainer > form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.topbar {
+  display: flex;
 }

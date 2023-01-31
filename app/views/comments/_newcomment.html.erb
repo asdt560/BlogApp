@@ -1,4 +1,4 @@
-<div>
+<div class='commentformcontainer'>
   <h3>Leave a comment:</h3>
   <%= form_with model: @comment, url: comments_create_path(@post.author.id, @post.id) do |f| %>
     <%= f.text_area :text %><br>
