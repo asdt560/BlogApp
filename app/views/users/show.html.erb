@@ -15,14 +15,16 @@
         <p><%= @user.bio %></p>
       </div>
       <% @posts.each do |post| %>
-        <div class='postcard'>
-          <p><%= post.title %></p>
-          <p><%= post.text.truncate(50, separator:' ') %></p>
-          <p class='count'>
-            Comments: <%= post.comments_counter != nil ? post.comments_counter : '0' %>
-            Likes: <%= post.likes_counter != nil ? post.likes_counter : '0' %>
-          </p>
-        </div>
+        <a href=<%= user_post_url(@user.id, post.id) %> >
+          <div class='postcard'>
+            <p><%= post.title %></p>
+            <p><%= post.text.truncate(50, separator:' ') %></p>
+            <p class='count'>
+              Comments: <%= post.comments_counter != nil ? post.comments_counter : '0' %>
+              Likes: <%= post.likes_counter != nil ? post.likes_counter : '0' %>
+            </p>
+          </div>
+        </a>
       <% end %>
       <a class='button' href=<%= user_posts_url(@user.id)%>>See All Posts</a>
     </div>
