@@ -61,7 +61,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-[Live Demo](https://drive.google.com/file/d/17qvVWCsgThUh9Jiqhck_7gsXJZ91NP49/view?usp=sharing)
+Live demo not available.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
