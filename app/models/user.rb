@@ -12,4 +12,8 @@ class User < ApplicationRecord
   def recent_posts
     Post.where(author_id: id).order('created_at DESC').limit(3)
   end
+
+  def is?(requested_role)
+    role == requested_role.to_s
+  end
 end

@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  load_and_authorize_resource
   def create
     puts params
     @comment = current_user.comments.new(params.require(:comment).permit(:text))
@@ -10,5 +11,13 @@ class CommentsController < ApplicationController
       puts 'error'
     end
     redirect_to user_post_path(@comment.post.author, @comment.post)
+  end
+
+  def destroy
+    @comment = Comment.find(params[:id])
+    @comment.destroy
+    @post = Post.find(@comment.post_id)
+    @post.decrement!(:comments_counter)
+    redirect_to @comment.post
   end
 end
