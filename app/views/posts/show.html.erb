@@ -16,7 +16,7 @@
         <div class='commentscard'>
           <% @comments.includes(:author).each do |comment| %>
             <p class='comment'><%= comment.author.name %>: <%= comment.text %></p>
-            <% if current_user %>
+            <% if can? :manage, comment %>
               <%= link_to 'Delete', user_post_comment_path(@author.id, @post.id, comment.id), method: :delete, form: {data: {turbo_confirm: 'Are you sure?', turbo_method: :delete}} %>
             <% end %>
           <% end %>

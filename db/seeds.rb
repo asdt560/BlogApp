@@ -29,14 +29,3 @@ users = User.create!([{
   }])
 post = Post.create(title: 'post by default', text: 'text by default', author_id: users.first.id)
 Comment.create(text: 'comment1', author_id: users.first.id, post_id: post.id)
-User.create!(
-  name: 'Admin2', 
-  photo: 'https://unsplash.com/photos/F_-0BxGuVvo', 
-  bio: 'Site Administrator.', 
-  role: 'admin', 
-  password: '6letters',
-  created_at: Time.now,
-  updated_at: Time.now,
-  encrypted_password: '$2a$12$192AtELpNZ0aZCfnSxs35umQYmbSn52FK8ML/vY.iZvDW4FvkvHn2', 
-  email: 'admin2@example.com'
- )

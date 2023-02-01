@@ -13,9 +13,7 @@ class User < ApplicationRecord
     Post.where(author_id: id).order('created_at DESC').limit(3)
   end
 
-  Roles = [ :admin , :default ]
-
-  def is?( requested_role )
-    self.role == requested_role.to_s
+  def is?(requested_role)
+    role == requested_role.to_s
   end
 end
