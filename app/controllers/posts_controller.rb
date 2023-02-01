@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  load_and_authorize_resource :except => :create
   def index
     @user = User.includes(:posts).find(params[:user_id])
   end
@@ -24,5 +25,11 @@ class PostsController < ApplicationController
       flash.now[:error] = 'Something went wrong'
       render :new, status: 422
     end
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+    @post.delete!
+    redirect_to user_posts_path(@post.author), status: :see_other
   end
 end

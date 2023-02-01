@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html>
-  <head></head>
+
   <body>
     <div class='topbar'>
       <% if user_signed_in? %>
@@ -10,8 +8,9 @@
         <% end %>
       </div>
       <div class='button small'>
-        <%= link_to "post", posts_new_path%>
+        <%= link_to "post", new_user_post_path(current_user.id)%>
       </div>
+      <p><%= current_user.name %></p>
     <% else %>
       <div class='button small'>
         <%= link_to "login", new_user_session_path %>
@@ -22,7 +21,7 @@
       <% @users.each do |user| %>
         <div class='card'>
           <img class='userpic' src= <%= user.photo %> >
-          <a href="<%= users_url(user.id) %>" class='leftcard'>
+          <a href="<%= user_url(user.id) %>" class='leftcard'>
             <h2 class='username'><%= user.name %></h2>
             <p class='count'>Number of posts: <%= user.posts_counter || '0' %></p><br>
           </a>
@@ -30,4 +29,3 @@
       <% end %>
     </div>
   </body>
-</html>

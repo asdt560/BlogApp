@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html>
-  <head></head>
+
   <body>
     <div class='container'>
       <h2>New Post:</h2>
-      <%= form_with model: @post, url: posts_create_path do |f| %>
+      <%= form_with model: @post, url: user_posts_path, method: :post do |f| %>
         <%= f.label :title %>
         <%= f.text_field :title %>
         <%= f.label :text %>
@@ -13,4 +11,3 @@
       <% end %>
     </div>
   </body>
-</html>

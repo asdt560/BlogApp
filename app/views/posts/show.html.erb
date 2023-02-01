@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html>
-  <head></head>
+
   <body>
     <div class='container postscreen'>
       <div class='postcard'>
@@ -10,15 +8,20 @@
           Likes: <%= @post.likes_counter || '0' %>
         </p>
         <p><%= @post.text %></p>
+        <% if can? :manage, @post %>
+          <%= link_to 'Delete Post', user_post_path(@author.id, @post.id), method: :delete, form: {data: {turbo_confirm: 'Are you sure?', turbo_method: :delete}} %>
+        <% end %>
       </div>
       <% if @comments.length > 0 %>
         <div class='commentscard'>
           <% @comments.includes(:author).each do |comment| %>
             <p class='comment'><%= comment.author.name %>: <%= comment.text %></p>
+            <% if current_user %>
+              <%= link_to 'Delete', user_post_comment_path(@author.id, @post.id, comment.id), method: :delete, form: {data: {turbo_confirm: 'Are you sure?', turbo_method: :delete}} %>
+            <% end %>
           <% end %>
         </div>
       <% end %>
       <%= render 'comments/newcomment' %>
     </div>
   </body>
-</html>
