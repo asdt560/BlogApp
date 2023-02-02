@@ -2,7 +2,7 @@ class Api::PostsController < ApplicationController
   load_and_authorize_resource except: :create
   def index
     @posts = Post.where(author_id: params[:user_id])
-    render :json => @posts
+    render json: @posts
   end
 
   def show
@@ -12,7 +12,7 @@ class Api::PostsController < ApplicationController
     @comment = @post.comments.new
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render :json => @comments }
+      format.json { render json: @comments }
     end
   end
 

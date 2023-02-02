@@ -5,7 +5,7 @@ class PostsController < ApplicationController
     @posts = Post.where(author_id: params[:user_id])
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render :json => @posts }
+      format.json { render json: @posts }
     end
   end
 
@@ -16,7 +16,7 @@ class PostsController < ApplicationController
     @comment = @post.comments.new
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render :json => @comments }
+      format.json { render json: @comments }
     end
   end
 

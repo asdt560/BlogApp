@@ -1,5 +1,4 @@
 class Api::UsersController < ApplicationController
-
   skip_before_action :verify_authenticity_token
   def login
     valid = User.find_by(email: params[:email]).valid_password?(params[:password])
