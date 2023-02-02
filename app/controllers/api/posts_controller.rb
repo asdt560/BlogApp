@@ -1,12 +1,8 @@
-class PostsController < ApplicationController
+class Api::PostsController < ApplicationController
   load_and_authorize_resource except: :create
   def index
-    @user = User.includes(:posts).find(params[:user_id])
     @posts = Post.where(author_id: params[:user_id])
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render :json => @posts }
-    end
+    render :json => @posts
   end
 
   def show
