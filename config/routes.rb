@@ -3,6 +3,13 @@ Rails.application.routes.draw do
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
+
+  namespace :api, defaults: { format: :json } do
+    post 'users/sign_in' => 'users#login'
+    get 'users/:user_id/posts' => 'posts#index'
+    get 'users/:user_id/posts/:post_id/comments' => 'comments#index'
+    post 'posts/:post_id/comments/new' => 'comments#create'
+  end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
